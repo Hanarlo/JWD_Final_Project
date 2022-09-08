@@ -27,18 +27,17 @@ public class DeleteUser extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		User user = (User)request.getSession().getAttribute("user");
-		Dao dao = DAOImpl.getInstance();;
-		dao.updateUserRole(user.getId(), 2);
-		response.sendRedirect("/web/login");
+
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		User user = (User)request.getSession().getAttribute("user");
+		Dao dao = DAOImpl.getInstance();;
+		dao.updateUserRole(user.getId(), 2);
+		response.sendRedirect("/web/login");
 	}
 
 }

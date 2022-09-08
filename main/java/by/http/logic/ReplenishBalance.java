@@ -36,6 +36,13 @@ public class ReplenishBalance extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Dao dao = DAOImpl.getInstance();;
 		HttpSession session = request.getSession();
 		String asd =(String) session.getAttribute("name");
@@ -58,14 +65,6 @@ public class ReplenishBalance extends HttpServlet {
 		}
 	    session.removeAttribute("name");
 	    response.sendRedirect("Mainpage.jsp");
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

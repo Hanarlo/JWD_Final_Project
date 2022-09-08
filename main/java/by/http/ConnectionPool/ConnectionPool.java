@@ -69,6 +69,7 @@ public class ConnectionPool{
         try{
             connection = connectionQueue.take();
             givenAwayConnections.add(connection);
+            System.out.println(givenAwayConnections.size() + " Size given away");
         } catch (InterruptedException e){
 			System.out.println("Error take connetcion! " + e.getMessage());
         }

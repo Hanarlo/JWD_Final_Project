@@ -31,10 +31,15 @@ public class CreateBill extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String billName = (String)request.getParameter("bill_name");
-		System.out.println(billName);
 		String cardName = (String)request.getParameter("card_name");
-		System.out.println(cardName);
 		Dao dao = DAOImpl.getInstance();;
 		User user = (User)request.getSession().getAttribute("user");
 		if (billName != "" && cardName != "") {
@@ -58,15 +63,6 @@ public class CreateBill extends HttpServlet {
 
 
 		getServletContext().getRequestDispatcher("/Mainpage.jsp").forward(request, response);
-		//response.sendRedirect("/web/main");
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

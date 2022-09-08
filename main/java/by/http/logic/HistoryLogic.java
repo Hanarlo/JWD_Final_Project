@@ -29,7 +29,7 @@ public class HistoryLogic {
 				}
 			return resultArrayList;
 		} catch (SQLException e) {
-			System.out.println("Error while retrieving incomeng history!: " + e.getMessage());
+			System.out.println("Error while retrieving incoming history!: " + e.getMessage());
 		}
 			return null;
 		
@@ -41,10 +41,10 @@ public class HistoryLogic {
 		try {
 			while(rSet.next()) {
 				int i = 0;
-				ResultSet recieveBillsName = dao.getBillNameByID(rSet.getInt(3));
+				ResultSet recieveBillsName = dao.getBillNameByID(rSet.getInt(2));
 				recieveBillsName.next();
 				String recieveBillName = recieveBillsName.getString(1);
-				ResultSet senderBillsName = dao.getBillNameByID(rSet.getInt(5));
+				ResultSet senderBillsName = dao.getBillNameByID(rSet.getInt(4));
 				senderBillsName.next();
 				String senderBillName = senderBillsName.getString(1);
 				resultArrayList.add("From your bill - " + senderBillName + " was sended to - " + recieveBillName + " " + rSet.getInt(6) + " US dollars at " + rSet.getDate(7));

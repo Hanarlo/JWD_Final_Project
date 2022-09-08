@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>Register</h1>
-		<form action="/web/create" method="get">
+		<form action="/web/create" method="post">
 			<input name="login" placeholder="Login" pattern="[a-zA-Z]+">
 			<input name = "password" placeholder="Password" pattern="[a-zA-Z]+">
 			<button>Register</button>

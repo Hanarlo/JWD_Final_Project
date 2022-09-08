@@ -28,6 +28,13 @@ public class ChangePassword extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String oldPassword = (String)request.getParameter("old_password");
 		String newPassword = (String)request.getParameter("new_password");
 		User user = (User)request.getSession().getAttribute("user");
@@ -52,14 +59,6 @@ public class ChangePassword extends HttpServlet {
 		}
 
 		getServletContext().getRequestDispatcher("/Mainpage.jsp").forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

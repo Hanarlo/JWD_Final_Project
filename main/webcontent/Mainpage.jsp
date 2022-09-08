@@ -85,7 +85,7 @@
 		</form>
 		<br>
 		<h4>Change username</h4>
-		<form action="/web/ChangeUsername" method="get">
+		<form action="/web/ChangeUsername" method="post">
 			<input name="new_username" placeholder="new login" pattern="[a-zA-Z]+">
 			<button>Change username</button>
 		</form>
@@ -100,7 +100,7 @@
 
 		%>
 		<h4>Change password</h4>
-		<form action="/web/ChangePassword" method="get">
+		<form action="/web/ChangePassword" method="post">
 			<input name="old_password" placeholder="Old password" pattern="[a-zA-Z]+">
 			<input name = "new_password" placeholder="new password" pattern="[a-zA-Z]+">
 			<button>Change password</button>
@@ -116,7 +116,7 @@
 		}
 		%>
 		<h4>Create new bill</h4>
-		<form action="/web/CreateBill" method="get">
+		<form action="/web/CreateBill" method="post">
 		<input name="bill_name" placeholder="Bill name" pattern="[a-zA-Z]+">
 		<input name="card_name" placeholder="Card name" pattern="[a-zA-Z]+">
 		<button>Create bill</button>
@@ -126,7 +126,7 @@
 			<button>Log out</button>
 		</form>
 				<br>
-		<form action="/web/DeleteUser" method="get">
+		<form action="/web/DeleteUser" method="post">
 			<button>delete account</button>
 		</form>
 </body>

@@ -302,13 +302,13 @@ public class DAOImpl implements Dao{
 			pStatement = connection.prepareStatement("SELECT name FROM bill WHERE id=?");
 			pStatement.setInt(1, billID);
 			rSet = pStatement.executeQuery();
+			return rSet;
 		} catch (SQLException e) {
 			System.out.println("Error retrieving bill name by id: " + e.getMessage());
 		} finally {
 					connectionPool.closeConnection(connection);
-
-			return rSet;
 		}
+		return null;
 	}
 
 	@Override

@@ -19,7 +19,7 @@ if (asd.contains("BLOCKED")) {
 	response.sendRedirect("/web/main");
 }
 %>
-	<form  action="/web/ReplenishBalance" method="get">
+	<form  action="/web/ReplenishBalance" method="post">
 				<input name = "balance" placeholder="amount" pattern="[0-9]+">
 			<button>Add to balance</button>
 	</form>
