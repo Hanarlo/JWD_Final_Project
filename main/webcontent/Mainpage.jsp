@@ -13,7 +13,11 @@
 <body>
 		<%@ page import="by.http.entity.User" %>
 		<%@ page import="by.http.dao.DAOImpl" %>
-		<% User user = (User)session.getAttribute("user");%>
+		<% User user = (User)session.getAttribute("user");
+		   if(user.getRole() != 1){
+			   response.sendRedirect("/web/admin");
+		   }
+		%>
 		<% Dao dao = DAOImpl.getInstance();%>
 		<h1><%="Welcome, " + user.getUsername() +"!"%></h1>
 		
@@ -101,8 +105,8 @@
 		%>
 		<h4>Change password</h4>
 		<form action="/web/ChangePassword" method="post">
-			<input name="old_password" placeholder="Old password" pattern="[a-zA-Z]+">
-			<input name = "new_password" placeholder="new password" pattern="[a-zA-Z]+">
+			<input name="old_password" placeholder="Old password" pattern="[a-zA-Z0-9]+">
+			<input name = "new_password" placeholder="new password" pattern="[a-zA-Z0-9]+">
 			<button>Change password</button>
 		</form>
 		<br>

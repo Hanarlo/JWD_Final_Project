@@ -12,15 +12,9 @@
 		<%@page import="by.http.dao.Dao"%>
 		<% User user = (User)session.getAttribute("user");%>
 		<% Dao dao = DAOImpl.getInstance();;
-		   String username = (String)request.getAttribute("user");
-		   String bill = (String)request.getAttribute("bill");
-		   if (username != null){
-				response.getWriter().append("<h3>"+username+"</h3>");
+		   if(user.getRole() != 3){
+			   response.sendRedirect("/web/main");
 		   }
-		   if (bill != null){
-				response.getWriter().append("<h3>"+bill+"</h3>");
-		   }
-		
 		
 		%>
 		<h1><%="Welcome, " + user.getUsername() +", my dear admin!"%></h1> <br>

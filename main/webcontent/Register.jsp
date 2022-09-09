@@ -10,12 +10,12 @@
 <h1>Register</h1>
 		<form action="/web/create" method="post">
 			<input name="login" placeholder="Login" pattern="[a-zA-Z]+">
-			<input name = "password" placeholder="Password" pattern="[a-zA-Z]+">
+			<input name = "password" placeholder="Password" pattern="[a-zA-Z0-9]+">
 			<button>Register</button>
 		</form>
 		<% String asd = (String)request.getAttribute("exists");
 		if (asd != null){
-			response.getWriter().append("<h1>User with your username is already exists, or you doesn't fill all fields!</h1>");
+			response.getWriter().append("<h1>User with your login is already exists!</h1>");
 		}
 		%>
 		<form action="/web/login" method="get">

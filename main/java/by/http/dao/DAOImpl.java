@@ -470,6 +470,25 @@ public class DAOImpl implements Dao{
 		}
 		
 	}
+
+	@Override
+	public String getUserNameByUserID(int id) {
+		dao.getConnection();
+		PreparedStatement pStatement;
+		ResultSet rSet;
+		try {
+			pStatement = connection.prepareStatement("SELECT username FROM user WHERE id=?");
+			pStatement.setInt(1, id);
+			rSet = pStatement.executeQuery();
+			rSet.next();
+			return rSet.getString(1);
+		} catch (SQLException e) {
+			System.out.println("Error retrieving user name by id: " + e.getMessage());
+		} finally {
+			connectionPool.closeConnection(connection);
+		}
+		return null;
+	}
 	
 	
 }

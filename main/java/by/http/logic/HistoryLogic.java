@@ -18,14 +18,14 @@ public class HistoryLogic {
 		ArrayList<String> resultArrayList = new ArrayList<>();
 		try {
 			while(rSet.next()) {
-				int i = 0;
-				ResultSet recieveBillsName = dao.getBillNameByID(rSet.getInt(3));
+				ResultSet recieveBillsName = dao.getBillNameByID(rSet.getInt(2));
 				recieveBillsName.next();
 				String recieveBillName = recieveBillsName.getString(1);
-				ResultSet senderBillsName = dao.getBillNameByID(rSet.getInt(5));
+				ResultSet senderBillsName = dao.getBillNameByID(rSet.getInt(4));
 				senderBillsName.next();
 				String senderBillName = senderBillsName.getString(1);
-				resultArrayList.add("To your bill - " + recieveBillName + " was sended from - " + senderBillName + " " + rSet.getInt(6) + " US dollars at " + rSet.getDate(7));
+				String senderUserName = dao.getUserNameByUserID(rSet.getInt(5));
+				resultArrayList.add("To your bill - " + recieveBillName + " was sended from bill - " + senderBillName + " by user - " + senderUserName + " " + rSet.getInt(6) + " US dollars at " + rSet.getDate(7));
 				}
 			return resultArrayList;
 		} catch (SQLException e) {
@@ -40,14 +40,14 @@ public class HistoryLogic {
 		ArrayList<String> resultArrayList = new ArrayList<>();
 		try {
 			while(rSet.next()) {
-				int i = 0;
 				ResultSet recieveBillsName = dao.getBillNameByID(rSet.getInt(2));
 				recieveBillsName.next();
 				String recieveBillName = recieveBillsName.getString(1);
+				String recieverUserName = dao.getUserNameByUserID(rSet.getInt(3));
 				ResultSet senderBillsName = dao.getBillNameByID(rSet.getInt(4));
 				senderBillsName.next();
 				String senderBillName = senderBillsName.getString(1);
-				resultArrayList.add("From your bill - " + senderBillName + " was sended to - " + recieveBillName + " " + rSet.getInt(6) + " US dollars at " + rSet.getDate(7));
+				resultArrayList.add("From your bill - " + senderBillName + " was sended to bill - " + recieveBillName + " to user - " + recieverUserName + " " + rSet.getInt(6) + " US dollars at " + rSet.getDate(7));
 			}
 			return resultArrayList;
 		} catch (SQLException e) {

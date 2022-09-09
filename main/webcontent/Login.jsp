@@ -10,7 +10,7 @@
 <h1>Login</h1>
 		<form action="/web/LoginUser" method="get">
 			<input name="login" placeholder="Login" pattern="[a-zA-Z]+">
-			<input type= "password" name = "password" placeholder="Password" pattern="[a-zA-Z]+">
+			<input type= "password" name = "password" placeholder="Password" pattern="[a-zA-Z0-9]+">
 			<button>login</button>
 		</form>
 				<% String notexists = (String)request.getAttribute("notexists");

@@ -14,6 +14,7 @@ public interface Dao {
 	public void createCard(int userID, int BillID, String name);
 	public void deleteUser(int userId);
 	public int getUserIDByUsername(String username);
+	public String getUserNameByUserID(int id);
 	public ResultSet getBillsByUserID(int userID);
 	public ResultSet getBillNameByID(int billID);
 	public ResultSet getBillsID(int userID);
