@@ -1,6 +1,6 @@
 # JWD Final Project 🚀
 
-The repository contains the files of the final project for obtaining a certificate in the course Java Web Development by EPAM
+The repository contains the files of the final project for obtaining a certificate in the internship Java Web Development by EPAM
 
 ## Description 📝
 
